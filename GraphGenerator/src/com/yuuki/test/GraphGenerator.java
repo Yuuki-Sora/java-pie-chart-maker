@@ -19,10 +19,10 @@ public class GraphGenerator extends JFrame {
     double dst2 = 300;
 
     public GraphGenerator(){
-        input = JOptionPane.showInputDialog("在此处输入信息：\n信息格式: Name 1/Percentage 1/Name 2/Percentage 2... \n\"/\"为参数分隔符。");
+        input = JOptionPane.showInputDialog("Please input your data here. \nFormat: Name 1/Percentage 1/Name 2/Percentage 2... \n\"/\" should separate the data and stuff. ");
         JFrame frame = new JFrame();
         frame.setSize(1000, 800);
-        frame.setTitle("Graph Generator");
+        frame.setTitle("Pie Chart Generator");
         frame.setVisible(true);
         frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
         frame.setResizable(false);
@@ -51,19 +51,19 @@ public class GraphGenerator extends JFrame {
                 System.out.println(degrees[0] + " " + name[0]);
                 System.out.println(degrees[1] + " " + name[1]);
             }catch (Exception e){
-                JOptionPane.showMessageDialog(null, "输入信息错误。请严格按照信息格式进行输入，数字不可以带空格。");
+                JOptionPane.showMessageDialog(null, "Input error. Please check the inputted data, and especially make sure no spaces are present. ");
                 System.exit(0);
             }
             int total = 0;
             for (int i = 0; i < max_num; i++){
                 total += percentage[i];
                 if(percentage[i] <= 0){
-                    JOptionPane.showMessageDialog(null, "百分数出错。请勿输入0或者负数。");
+                    JOptionPane.showMessageDialog(null, "Percentage error. Please do not input 0 or negative values. ");
                     System.exit(0);
                 }
             }
             if(total > 100){
-                JOptionPane.showMessageDialog(null, "百分数出错。请注意，百分数不是角度。");
+                JOptionPane.showMessageDialog(null, "Percentage error. Please be aware that these are PERCENTAGES, not DEGREES. ");
                 System.exit(0);
             }
             for(int i = 0; i < max_num; i++){
